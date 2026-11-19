@@ -60,7 +60,7 @@
     "prepack": "pnpm build"
   },
   "dependencies": {
-    "entities": "^8.1.0"
+    "entities": "^9.0.0"
   },
   "devDependencies": {
     "@arethetypeswrong/core": "^0.18.5",
