@@ -21,9 +21,9 @@ function Counter() {
 document.body.append(...render(<Counter />));
 ```
 
-- Updates touch only the nodes and attributes bound to a reactive value..
+- Fine-grained updates to elements and attributes.
 - Server rendering and hydration are built in.
-- Uses the standard JSX transform, with no compiler plugin.
+- Works out of the box with TypeScript, with no compiler plugin needed.
 - Typed HTML, SVG and MathML attributes.
 - ESM only, with TypeScript types included.
 
