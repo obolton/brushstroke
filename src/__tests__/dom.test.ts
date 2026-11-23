@@ -227,6 +227,16 @@ describe("render", () => {
     expect(element.data).toEqual({ id: "a" });
   });
 
+  test("sets properties after children are appended", () => {
+    const [element] = render(
+      jsx("select", {
+        "bind:value": reactive("b"),
+        children: [jsx("option", { value: "a" }), jsx("option", { value: "b" })],
+      }),
+    ) as [HTMLSelectElement];
+    expect(element.value).toBe("b");
+  });
+
   test("ignores a binding for a property that does not exist on the element", () => {
     const properties = { "bind:unknown": reactive("value") } as JSX.Properties<"div">;
     const [element] = render(jsx("div", properties)) as [HTMLElement];
@@ -405,6 +415,32 @@ describe("hydrate", () => {
     hydrate(jsx("span", {}), container);
     expect(container.children).toHaveLength(1);
     expect(container.firstElementChild?.tagName).toBe("SPAN");
+  });
+
+  test("sets properties after children are appended to a created element", () => {
+    const container = document.createElement("div");
+    hydrate(
+      jsx("select", {
+        $value: "b",
+        children: [jsx("option", { value: "a" }), jsx("option", { value: "b" })],
+      }),
+      container,
+    );
+    expect(container.querySelector("select")?.value).toBe("b");
+  });
+
+  test("sets properties after children are hydrated in an existing element", () => {
+    const container = document.createElement("div");
+    const existing = document.createElement("select");
+    container.appendChild(existing);
+    hydrate(
+      jsx("select", {
+        $value: "b",
+        children: [jsx("option", { value: "a" }), jsx("option", { value: "b" })],
+      }),
+      container,
+    );
+    expect(existing.value).toBe("b");
   });
 
   test("sets attributes on the hydrated element", () => {

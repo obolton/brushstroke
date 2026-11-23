@@ -224,17 +224,17 @@ function hydrateDOMElement(
 
   if (node) {
     const element = ensureElementNode(node, tagName, elementNamespace);
-    setAttributes(element, attributes, context.signal);
     hydrateFragment(toNodeArray(attributes.children), element, 0, childrenContext);
+    setAttributes(element, attributes, context.signal);
     if (attributes.ref) {
       attributes.ref(element);
     }
     return [element];
   } else {
     const element = createElement(tagName, elementNamespace);
-    setAttributes(element, attributes, context.signal);
     const childNodes = renderFragment(toNodeArray(attributes.children), childrenContext);
     element.append(...childNodes);
+    setAttributes(element, attributes, context.signal);
 
     if (attributes.ref) {
       attributes.ref(element);
@@ -352,8 +352,6 @@ function renderDOMElement(node: JSX.Element<keyof JSX.IntrinsicElements>, contex
 
   const element = createElement(type, elementNamespace);
 
-  setAttributes(element, properties, context.signal);
-
   const { children, ref } = properties;
 
   // Included content from a different namespace
@@ -365,6 +363,8 @@ function renderDOMElement(node: JSX.Element<keyof JSX.IntrinsicElements>, contex
   if (children !== null && children !== undefined) {
     element.append(...render(children, childrenContext));
   }
+
+  setAttributes(element, properties, context.signal);
 
   if (ref) {
     // TODO: Improve types
