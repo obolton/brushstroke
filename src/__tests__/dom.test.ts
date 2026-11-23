@@ -381,6 +381,15 @@ describe("hydrate", () => {
     expect(container.firstElementChild).toBe(existing);
   });
 
+  test("handles a camelCase tag name", () => {
+    const container = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const existing = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+    container.appendChild(existing);
+    hydrate(jsx("linearGradient", {}), container);
+    expect(container.children).toHaveLength(1);
+    expect(container.firstElementChild).toBe(existing);
+  });
+
   test("replaces an existing element when the tag does not match", () => {
     const container = document.createElement("div");
     const existing = document.createElement("span");
@@ -638,7 +647,8 @@ describe("hydrate", () => {
     test("uses the XHTML namespace when hydrating existing foreignObject children", () => {
       const container = document.createElement("div");
       const svg = document.createElementNS(SVG_NAMESPACE, "svg");
-      svg.appendChild(document.createElementNS(SVG_NAMESPACE, "foreignObject"));
+      const foreignObject = document.createElementNS(SVG_NAMESPACE, "foreignObject");
+      svg.appendChild(foreignObject);
       container.appendChild(svg);
       hydrate(
         jsx("svg", {
@@ -648,6 +658,7 @@ describe("hydrate", () => {
         }),
         container,
       );
+      expect(svg.firstElementChild).toBe(foreignObject);
       expect(container.querySelector("div")?.namespaceURI).toBe(XHTML_NAMESPACE);
     });
   });

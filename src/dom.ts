@@ -144,7 +144,7 @@ function ensureTextNode(node: Node, value: string) {
 }
 
 function ensureElementNode(node: Node, tagName: string, namespace?: string | null) {
-  if (node instanceof Element && node.tagName.toLowerCase() === tagName) {
+  if (node instanceof Element && node.localName === tagName) {
     return node;
   }
   const element = createElement(tagName, namespace);
