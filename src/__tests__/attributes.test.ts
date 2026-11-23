@@ -47,6 +47,10 @@ describe("transformCSSProperty", () => {
   test("handles single word properties", () => {
     expect(transformCSSProperty("color")).toBe("color");
   });
+
+  test("preserves the case of custom properties", () => {
+    expect(transformCSSProperty("--fooBar")).toBe("--fooBar");
+  });
 });
 
 describe("isValidStyleValue", () => {

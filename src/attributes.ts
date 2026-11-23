@@ -16,9 +16,12 @@ export function mapAttributeName(name: string): string {
 }
 
 /**
- * Transforms CSS property names to kebab-case.
+ * Transforms CSS property names to kebab-case. Custom properties are case-sensitive and left unchanged.
  */
 export function transformCSSProperty(name: string) {
+  if (name.startsWith("--")) {
+    return name;
+  }
   return name.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
