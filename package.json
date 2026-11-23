@@ -1,6 +1,6 @@
 {
   "name": "linocut",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A small JSX runtime for reactive DOM and server rendering",
   "keywords": [
     "dom",
