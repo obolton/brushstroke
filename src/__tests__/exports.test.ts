@@ -5,7 +5,7 @@ import * as runtime from "../jsx-runtime";
 import * as devRuntime from "../jsx-dev-runtime";
 
 describe("package entry points", () => {
-  test("linocut", () => {
+  test("brushstroke", () => {
     expect(Object.keys(main).sort()).toEqual([
       "Case",
       "Default",
@@ -20,7 +20,7 @@ describe("package entry points", () => {
     ]);
   });
 
-  test("linocut/server", () => {
+  test("brushstroke/server", () => {
     expect(Object.keys(server).sort()).toEqual([
       "closeTag",
       "escapeTagContents",
@@ -30,11 +30,11 @@ describe("package entry points", () => {
     ]);
   });
 
-  test("linocut/jsx-runtime", () => {
+  test("brushstroke/jsx-runtime", () => {
     expect(Object.keys(runtime).sort()).toEqual(["Fragment", "jsx", "jsxs"]);
   });
 
-  test("linocut/jsx-dev-runtime", () => {
+  test("brushstroke/jsx-dev-runtime", () => {
     expect(Object.keys(devRuntime).sort()).toEqual(["Fragment", "jsx", "jsxDEV", "jsxs"]);
   });
 });

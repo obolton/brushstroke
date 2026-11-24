@@ -1,12 +1,12 @@
-# Linocut
+# Brushstroke
 
 A small, fast JSX-based UI library for JavaScript/TypeScript, without a virtual DOM.
 
-Components are plain functions that run once. Pass a [carillon](https://github.com/obolton/carillon) reactive value as a child or an attribute, and Linocut updates only that part of the DOM when the value changes.
+Components are plain functions that run once. Pass a [carillon](https://github.com/obolton/carillon) reactive value as a child or an attribute, and Brushstroke updates only that part of the DOM when the value changes.
 
 ```tsx
 import { reactive } from "carillon";
-import { render } from "linocut";
+import { render } from "brushstroke";
 
 const count = reactive(0);
 
@@ -30,18 +30,18 @@ document.body.append(...render(<Counter />));
 ## Installation
 
 ```sh
-npm install linocut carillon
+npm install brushstroke carillon
 ```
 
-Linocut targets ES2025. It runs on Node 22 or later and in current browsers.
+Brushstroke targets ES2025. It runs on Node 22 or later and in current browsers.
 
-Set Linocut as the JSX import source in your `tsconfig.json`:
+Set Brushstroke as the JSX import source in your `tsconfig.json`:
 
 ```json
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "linocut"
+    "jsxImportSource": "brushstroke"
   }
 }
 ```
@@ -83,7 +83,7 @@ const name = reactive("");
 
 ```tsx
 import { array, reactive } from "carillon";
-import { Case, Default, Each, If, Portal, Switch } from "linocut";
+import { Case, Default, Each, If, Portal, Switch } from "brushstroke";
 
 const items = array(["a", "b"]);
 const open = reactive(false);
@@ -114,7 +114,7 @@ const status = reactive<"loading" | "ready">("loading");
 Render to an HTML string on the server:
 
 ```tsx
-import { renderToString } from "linocut/server";
+import { renderToString } from "brushstroke/server";
 
 const html = renderToString(<App />);
 ```
@@ -122,7 +122,7 @@ const html = renderToString(<App />);
 Then attach to the existing DOM in the browser:
 
 ```tsx
-import { hydrate } from "linocut";
+import { hydrate } from "brushstroke";
 
 hydrate(<App />, document.body);
 ```

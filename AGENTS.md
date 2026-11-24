@@ -1,6 +1,6 @@
-# Linocut
+# Brushstroke
 
-Linocut is a JSX runtime for TypeScript that renders to the DOM and to HTML strings, with reactive updates driven by `carillon`. It is published to npm as `linocut`.
+Brushstroke is a JSX runtime for TypeScript that renders to the DOM and to HTML strings, with reactive updates driven by `carillon`. It is published to npm as `brushstroke`.
 
 ## Workflow
 

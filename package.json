@@ -1,5 +1,5 @@
 {
-  "name": "linocut",
+  "name": "brushstroke",
   "version": "0.1.1",
   "description": "A small JSX runtime for reactive DOM and server rendering",
   "keywords": [
@@ -10,15 +10,15 @@
     "ssr",
     "ui"
   ],
-  "homepage": "https://github.com/obolton/linocut#readme",
+  "homepage": "https://github.com/obolton/brushstroke#readme",
   "bugs": {
-    "url": "https://github.com/obolton/linocut/issues"
+    "url": "https://github.com/obolton/brushstroke/issues"
   },
   "license": "MIT",
   "author": "Oliver Bolton",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/obolton/linocut.git"
+    "url": "git+https://github.com/obolton/brushstroke.git"
   },
   "files": [
     "dist"

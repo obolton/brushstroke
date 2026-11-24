@@ -4,10 +4,10 @@
     "module": "preserve",
     "lib": ["ES2025", "DOM"],
     "jsx": "react-jsx",
-    "jsxImportSource": "linocut",
+    "jsxImportSource": "brushstroke",
     "paths": {
-      "linocut/jsx-runtime": ["./src/jsx-runtime.ts"],
-      "linocut/jsx-dev-runtime": ["./src/jsx-dev-runtime.ts"]
+      "brushstroke/jsx-runtime": ["./src/jsx-runtime.ts"],
+      "brushstroke/jsx-dev-runtime": ["./src/jsx-dev-runtime.ts"]
     },
     "skipLibCheck": true,
     "verbatimModuleSyntax": true,

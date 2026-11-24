@@ -2,7 +2,7 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
-    // Resolves the `linocut/jsx-runtime` import source used by JSX in tests
+    // Resolves the `brushstroke/jsx-runtime` import source used by JSX in tests
     tsconfigPaths: true,
   },
   test: {
